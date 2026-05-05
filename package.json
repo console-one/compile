@@ -1,0 +1,51 @@
+{
+  "name": "@console-one/compile",
+  "version": "0.1.0",
+  "description": "Hoist-aware compiler with multi-dimensional bucketing, plus the structural codec and adapter-driven registry that feed it. Zero dependencies.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/console-one/compile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/console-one/compile/issues"
+  },
+  "homepage": "https://github.com/console-one/compile#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "smoke": "node dist/smoke.js",
+    "test": "node dist/test-runner.js",
+    "prepublishOnly": "npm run clean && npm run build && npm run test"
+  },
+  "keywords": [
+    "compiler",
+    "codegen",
+    "hoist",
+    "codec",
+    "serialization",
+    "object-graph"
+  ],
+  "author": "Andrew Chalmers",
+  "license": "MIT",
+  "dependencies": {
+    "@console-one/assessable": "file:../assessable"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.39",
+    "typescript": "^5.9.3"
+  }
+}
